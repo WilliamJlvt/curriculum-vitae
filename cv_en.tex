@@ -1,0 +1,271 @@
+%----------------------------------------------------------------------------------------
+%   DOCUMENT CONFIGURATION
+%----------------------------------------------------------------------------------------
+\documentclass[10pt,a4paper]{article}
+
+% Encoding and fonts
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+\usepackage[default]{raleway} % Police moderne sans-serif
+\usepackage{fontawesome5}     % Icônes
+
+% Layout and geometry
+\usepackage[left=1cm,right=1cm,top=0.75cm,bottom=0.8cm]{geometry}
+\usepackage{array}            % Tableaux
+\usepackage{xcolor}           % Couleurs
+\usepackage{graphicx}         % Images
+\usepackage{tikz}             % Graphismes
+\usepackage{hyperref}         % Liens
+\usepackage{enumitem}         % Listes
+\usepackage{paracol}          % Colonnes
+
+% Color palette ("Tech Corporate" style)
+\definecolor{primary}{RGB}{30, 58, 138}    % Bleu foncé
+\definecolor{accent}{RGB}{37, 99, 235}     % Bleu vif
+\definecolor{textgrey}{RGB}{55, 65, 81}    % Gris foncé
+\definecolor{lightgrey}{RGB}{107, 114, 128} % Gris clair
+
+% Link styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    urlcolor=primary,
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Tight line spacing
+\renewcommand{\baselinestretch}{0.90}
+\setlength{\parskip}{0.8pt}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{topsep=0.5pt,itemsep=0.5pt,leftmargin=0.4cm,parsep=0pt,partopsep=0pt}
+
+%----------------------------------------------------------------------------------------
+%   CUSTOM COMMANDS
+%----------------------------------------------------------------------------------------
+
+% Section header
+\newcommand{\sectionheader}[1]{
+    \vspace{0.12cm}
+    {\color{primary}\Large\bfseries\uppercase{#1}} \\
+    {\color{accent}\rule{\linewidth}{1.5pt}}
+    \vspace{0.03cm}
+}
+
+% Experience entry
+\newcommand{\jobentry}[4]{%
+    \textbf{#1} \hfill \textbf{\color{primary}#2} \\
+    \textit{\textbf{#3}} \hfill \textit{\color{textgrey}#4} \\
+    \vspace{0.05cm}
+}
+
+% Project entry
+\newcommand{\projectentry}[3]{
+    \textbf{#1} $\cdot$ \textit{\color{accent}#2} \\
+    {\small #3}
+    \vspace{0.08cm}
+}
+
+% Skill pill
+\newcommand{\skilltag}[1]{%
+    \tikz[baseline]\node[anchor=base, draw=primary!20, fill=primary!5, rounded corners=2pt, inner sep=1.6pt, text=primary]{\small\textbf{#1}};\hspace{0.08cm}%
+}
+
+%----------------------------------------------------------------------------------------
+%   DOCUMENT START
+%----------------------------------------------------------------------------------------
+\begin{document}
+\footnotesize
+
+% --- HEADER ---
+\begin{minipage}[t]{0.74\textwidth}
+    \vspace{-0.5cm}
+    {\fontsize{28}{34}\selectfont \textbf{\color{primary}William JOLIVET}} \\[-0.05cm]
+    {\color{accent}\rule{5.5cm}{1.5pt}} \\[0.18cm]
+    {\large \textbf{Fullstack Software Engineer \& DevOps}} \\[0.08cm]
+    {\normalsize \textit{Vice President, Taker Junior Enterprise | Epitech Tek3 Student}} \\[0.25cm]
+    
+    \begin{tabular}{@{} l l @{\hspace{0.6cm}} l l @{\hspace{0.6cm}} l l}
+        \faMapMarker & Lyon, France & \faEnvelope & \href{mailto:william.jolivet@epitech.eu}{william.jolivet@epitech.eu} & \faGithub & \href{https://github.com/WilliamJlvt}{github.com/WilliamJlvt} \\
+        \faPhone & +33 6 38 12 94 12 & \faLinkedin & \href{https://www.linkedin.com/in/william-jolivet/}{in/william-jolivet} & \faGlobe & \href{https://williamjlvt.github.io}{williamjlvt.github.io}
+    \end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.23\textwidth}
+    % --- SQUARE PHOTO ---
+    % Note: ensure you have a file named 'photo.jpg' (or png)
+    % in the same folder as this .tex file. The image is auto-cropped to a square.
+    \vspace{-0.5cm}
+    \begin{flushright}
+        \begin{tikzpicture}
+            \clip (0,0) rectangle (3.2,3.2); % Découpe carrée stricte
+            \node[anchor=center, inner sep=0] at (1.6,1.6) {\includegraphics[width=3.2cm, keepaspectratio]{photo.jpg}}; 
+            % Replace 'photo.jpg' with your file name
+        \end{tikzpicture}
+    \end{flushright}
+\end{minipage}
+
+\vspace{0.1cm}
+
+% --- FULL-WIDTH SUMMARY ---
+{\color{primary}\large\bfseries Professional Summary} \\
+{\footnotesize Fullstack software engineer \& DevOps (Go/Gin, NestJS, gRPC). SaaS/AI deliveries (RAG, audio) on \textbf{AWS (Amazon Web Services)} + Docker; strong \textbf{CI/CD (Continuous Integration / Continuous Deployment)} culture. Tech lead, scoping, mentoring; remote/hybrid consulting missions.}
+
+% --- COLUMNS ---
+\columnratio{0.74,0.26}
+\setlength{\columnsep}{0.25cm}
+\begin{paracol}{2}
+
+% --- LEFT ---
+\sectionheader{Professional Experience}
+
+% HAND-E - Turnkey AI app internship
+\jobentry{Software Development Engineer \& DevOps (Part-time Internship)}{Lyon / Hybrid}{Hand-e (AI Consulting \& Digital Transformation)}{08/2025 -- Present}
+\vspace{0.02cm}
+\begin{itemize}[itemsep=2pt,topsep=1pt,leftmargin=0.55cm]
+    \item \textbf{Turnkey AI deployment platform:} App to launch AI software (chatbots, voice) in a few clicks, stack \textbf{NestJS, PostgreSQL, Prisma, Python, Nuxt}.
+    \item \textbf{Packaging and orchestration:} App templates, database/service provisioning, Python scripts for AI workers.
+    \item \textbf{CI/CD \& DX:} GitHub Actions pipelines, lint/test, Docker images optimized for fast client deployments.
+\end{itemize}
+\vspace{0.18cm}
+
+% HAND-E - Long internship
+\jobentry{DevOps Engineer (Internship)}{Lyon / Hybrid}{Hand-e (AI Consulting \& Digital Transformation)}{07/2024 -- 12/2024}
+\vspace{0.02cm}
+\begin{itemize}[itemsep=2pt,topsep=1pt,leftmargin=0.55cm]
+    \item \textbf{"Hostasphere" SaaS architecture:} Multi-tenant LLM observability platform (Go/Gin + MongoDB) with gRPC/Protobuf ingestion pipeline and non-blocking Python SDK.
+    \item \textbf{Reliability \& operations:} GitHub Actions CI/CD, multi-stage Docker images, Nginx reverse proxy, centralized logs.
+    \item \textbf{Product AI:} Internal RAG chatbot via \textbf{Litellm} for the client knowledge base.
+\end{itemize}
+\vspace{0.18cm}
+
+% TAKER
+\jobentry{Vice President}{Le Kremlin-Bicêtre / Lyon}{Taker Junior Enterprise (Epitech Junior Enterprise)}{03/2024 -- Present}
+\textit{Vice President (since Jul. 2025) $\cdot$ Study Follow-up Lead (previous)}
+\vspace{0.02cm}
+\begin{itemize}[itemsep=2pt,topsep=1pt,leftmargin=0.55cm]
+    \item \textbf{Strategic direction:} Led a $\sim$240k€ revenue organization, CNJE \textbf{"Best Hope 2024"} laureate; optimized offers and margin.
+    \item \textbf{Management:} Supervised technical teams with weekly rituals and skill-up plans.
+    \item \textbf{Tech lead:} Rescue of high-risk studies (In Astra): architecture scoping, QA, and client deliverables.
+\end{itemize}
+\vspace{0.16cm}
+
+% EPITECH
+\jobentry{Occasional Lecturer / Instructor}{Lyon}{EPITECH}{01/2026}
+\textit{Intensive mission (70h/2 weeks) on the Lyon campus}
+\vspace{0.02cm}
+\begin{itemize}[itemsep=2pt,topsep=1pt,leftmargin=0.55cm]
+    \item \textbf{ISEG Code Camp bootcamp:} Delivered an intro coding module for first-year students (algo basics + web).
+    \item \textbf{Digital pedagogy:} Designed e-learning/video materials and assessment topics for the intranet.
+    \item \textbf{Assessment \& juries:} Grading, evaluations, participation in academic councils.
+\end{itemize}
+\vspace{0.18cm}
+
+\sectionheader{Selected Projects}
+
+% --- IN ASTRA ---
+\projectentry{AI Callbot "In Astra" (CNE ALTEN 2025 Finalist)}{Python, LiveKit, RAG, WebSockets}{
+    \textbf{Finalist for Best Engineering Study Award.} End-to-end architecture of a sovereign voice infrastructure to avoid costly SaaS solutions.
+}
+\begin{itemize}[label=$\cdot$,leftmargin=0.5cm]
+    \item \textbf{Latency <1s:} Real-time pipeline orchestration (STT Whisper $\rightarrow$ LLM RAG $\rightarrow$ TTS ElevenLabs) on \textbf{self-hosted LiveKit}.
+    \item \textbf{Economic impact:} 3x infrastructure cost reduction ($0.12\$/min \rightarrow 0.04\$/min$). Token optimization and removal of intermediaries.
+    \item \textbf{Intelligence \& sovereignty:} Dynamic RAG on vector DB, real-time action triggers (webhooks), and full data ownership.
+\end{itemize}
+\vspace{0.08cm}
+
+% --- GLADOS ---
+\projectentry{Glados (TopineurInc)}{Haskell, VM, Compiler}{
+    \textbf{Lisp engine $\rightarrow$ bytecode (94\% Haskell).} Full pipeline: parsing, macros, desugaring, \textbf{closure conversion}, ANF, bytecode generation, and \textbf{TCO}.
+}
+\begin{itemize}[label=$\cdot$,leftmargin=0.5cm]
+    \item \textbf{Hindley--Milner type inference:} Unification + occurs check, principal typing ready for specialization.
+    \item \textbf{High-performance VM:} Constant pool/labels, tail-call detection, hot-path optimization (GHC profiling, typed opcodes to reduce boxing, strict State).
+    \item \textbf{Quality \& automation:} Property-based tests (QuickCheck) covering the full pipeline, Python/Makefile CI/CD for reproducible builds.
+\end{itemize}
+\vspace{0.08cm}
+
+\projectentry{Survivor-Tek3 (Incubator Platform)}{Next.js 15, NestJS, PostgreSQL}{Fullstack management platform for incubator: modular architecture, admin dashboard, and real-time messaging (WebSockets).}
+\vspace{0.08cm}
+
+\projectentry{OpenHosta (Open Source Library)}{Python, OOP, Design Patterns}{Major refactor of an LLM integration library: object-oriented architecture, decoupled pipelines, and improved extensibility.}
+
+% --- RIGHT ---
+\switchcolumn
+\sectionheader{Skills}
+
+\textbf{\faCode\ Languages} \\
+\skilltag{Go (Golang)} \skilltag{Haskell} \skilltag{Python} \\
+\skilltag{C} \skilltag{C++} \skilltag{TypeScript} \skilltag{Java} \\
+\skilltag{SQL} \skilltag{Bash}
+\vspace{0.06cm}
+
+\textbf{\faServer\ Backend \& Data} \\
+\skilltag{Gin} \skilltag{NestJS} \\
+\skilltag{gRPC} \skilltag{Protobuf} \\
+\skilltag{MongoDB} \skilltag{PostgreSQL}
+\vspace{0.06cm}
+
+\textbf{\faCloud\ DevOps \& Tools} \\
+\skilltag{Docker} \skilltag{LiveKit} \\
+\skilltag{GitHub Actions} \skilltag{CI/CD} \\
+\skilltag{AWS} \skilltag{Nginx} \skilltag{Linux}
+\vspace{0.06cm}
+
+\textbf{\faLaptopCode\ Frontend} \\
+\skilltag{React} \skilltag{Next.js 15} \\
+\skilltag{Tailwind CSS}
+\vspace{0.06cm}
+
+\textbf{\faBrain\ AI \& Engineering} \\
+\skilltag{RAG} \skilltag{STT/TTS} \\
+\skilltag{Real-time audio} \skilltag{Compilers} \\
+\skilltag{Hindley-Milner} \skilltag{ANF/Closure} \\
+\skilltag{Bytecode VM}
+
+\vspace{0.14cm}
+\sectionheader{Education}
+
+\textbf{Epitech Technology} \\
+\textit{Information Technology Expert} \\
+Class of 2028 (currently Tek3) \\
+\small{Project-based learning.}
+\vspace{0.15cm}
+
+\textbf{Taker Academy} \\
+\textit{Fullstack Training} \\
+2024
+\vspace{0.15cm}
+
+\textbf{ECS Sallanches High School} \\
+\textit{General Baccalaureate} \\
+2023 \\
+\small{Specialties: CS, Math.}
+
+\vspace{0.14cm}
+\sectionheader{Certifications}
+
+\textbf{The Mantu Manager Program} \\
+\textit{Business Acquisition} \\
+Nov. 2025
+\vspace{0.15cm}
+
+\textbf{CNE25 Finalist (ALTEN)} \\
+\textit{Best Engineering Study} \\
+Apr. 2025
+
+\vspace{0.14cm}
+\sectionheader{Performance}
+
+\vspace{0.18cm}
+\textbf{Kattis (Algorithms)} \\
+\textbf{Rank \#8} in Auvergne-R.-Alpes.
+\vspace{0.32cm}
+
+\textbf{Languages} \\
+\textbf{French}: Native \\
+\textbf{English}: B2+ (Technical)
+
+\end{paracol}
+\end{document}

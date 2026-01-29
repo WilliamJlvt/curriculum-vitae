@@ -1,0 +1,271 @@
+%----------------------------------------------------------------------------------------
+%   CONFIGURATION DU DOCUMENT
+%----------------------------------------------------------------------------------------
+\documentclass[10pt,a4paper]{article}
+
+% Encodage et polices
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+\usepackage[default]{raleway} % Police moderne sans-serif
+\usepackage{fontawesome5}     % Icônes
+
+% Mise en page et géométrie
+\usepackage[left=1cm,right=1cm,top=0.75cm,bottom=0.8cm]{geometry}
+\usepackage{array}            % Tableaux
+\usepackage{xcolor}           % Couleurs
+\usepackage{graphicx}         % Images
+\usepackage{tikz}             % Graphismes
+\usepackage{hyperref}         % Liens
+\usepackage{enumitem}         % Listes
+\usepackage{paracol}          % Colonnes
+
+% Définition des couleurs (Style "Tech Corporate")
+\definecolor{primary}{RGB}{30, 58, 138}    % Bleu foncé
+\definecolor{accent}{RGB}{37, 99, 235}     % Bleu vif
+\definecolor{textgrey}{RGB}{55, 65, 81}    % Gris foncé
+\definecolor{lightgrey}{RGB}{107, 114, 128} % Gris clair
+
+% Configuration des liens
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    urlcolor=primary,
+}
+
+% Suppression des numéros de page
+\pagestyle{empty}
+
+% Interligne serré
+\renewcommand{\baselinestretch}{0.90}
+\setlength{\parskip}{0.8pt}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{topsep=0.5pt,itemsep=0.5pt,leftmargin=0.4cm,parsep=0pt,partopsep=0pt}
+
+%----------------------------------------------------------------------------------------
+%   COMMANDES PERSONNALISÉES
+%----------------------------------------------------------------------------------------
+
+% En-tête de section
+\newcommand{\sectionheader}[1]{
+    \vspace{0.12cm}
+    {\color{primary}\Large\bfseries\uppercase{#1}} \\
+    {\color{accent}\rule{\linewidth}{1.5pt}}
+    \vspace{0.03cm}
+}
+
+% Entrée d'expérience
+\newcommand{\jobentry}[4]{%
+    \textbf{#1} \hfill \textbf{\color{primary}#2} \\
+    \textit{\textbf{#3}} \hfill \textit{\color{textgrey}#4} \\
+    \vspace{0.05cm}
+}
+
+% Entrée de projet
+\newcommand{\projectentry}[3]{
+    \textbf{#1} $\cdot$ \textit{\color{accent}#2} \\
+    {\small #3}
+    \vspace{0.08cm}
+}
+
+% Pilule de compétence
+\newcommand{\skilltag}[1]{%
+    \tikz[baseline]\node[anchor=base, draw=primary!20, fill=primary!5, rounded corners=2pt, inner sep=1.6pt, text=primary]{\small\textbf{#1}};\hspace{0.08cm}%
+}
+
+%----------------------------------------------------------------------------------------
+%   DÉBUT DU DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+\footnotesize
+
+% --- EN-TÊTE ---
+\begin{minipage}[t]{0.74\textwidth}
+    \vspace{-0.5cm}
+    {\fontsize{28}{34}\selectfont \textbf{\color{primary}William JOLIVET}} \\[-0.05cm]
+    {\color{accent}\rule{5.5cm}{1.5pt}} \\[0.18cm]
+    {\large \textbf{Ingénieur Logiciel Fullstack \& DevOps}} \\[0.08cm]
+    {\normalsize \textit{Vice-Président Junior Conseil Taker | Étudiant Tek3 Epitech}} \\[0.25cm]
+    
+    \begin{tabular}{@{} l l @{\hspace{0.6cm}} l l @{\hspace{0.6cm}} l l}
+        \faMapMarker & Lyon, France & \faEnvelope & \href{mailto:william.jolivet@epitech.eu}{william.jolivet@epitech.eu} & \faGithub & \href{https://github.com/WilliamJlvt}{github.com/WilliamJlvt} \\
+        \faPhone & +33 6 38 12 94 12 & \faLinkedin & \href{https://www.linkedin.com/in/william-jolivet/}{in/william-jolivet} & \faGlobe & \href{https://williamjlvt.github.io}{williamjlvt.github.io}
+    \end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.23\textwidth}
+    % --- PHOTO CARRÉE ---
+    % Note pour l'utilisateur : Assurez-vous d'avoir un fichier nommé 'photo.jpg' (ou png) 
+    % dans le même dossier que ce fichier.tex. L'image sera automatiquement ajustée en carré.
+    \vspace{-0.5cm}
+    \begin{flushright}
+        \begin{tikzpicture}
+            \clip (0,0) rectangle (3.2,3.2); % Découpe carrée stricte
+            \node[anchor=center, inner sep=0] at (1.6,1.6) {\includegraphics[width=3.2cm, keepaspectratio]{photo.jpg}}; 
+            % Remplacez 'photo.jpg' par le nom de votre fichier
+        \end{tikzpicture}
+    \end{flushright}
+\end{minipage}
+
+\vspace{0.1cm}
+
+% --- RÉSUMÉ PLEINE LARGEUR ---
+{\color{primary}\large\bfseries Résumé Opérationnel} \\
+{\footnotesize Ingénieur logiciel fullstack \& DevOps (Go/Gin, NestJS, gRPC). Livraisons SaaS/IA (RAG, audio) sur \textbf{AWS (Amazon Web Services)} + Docker ; culture \textbf{CI/CD (Continuous Integration / Continuous Deployment)}. Lead tech, cadrage, mentoring ; missions conseil remote/hybride.}
+
+% --- COLONNES ---
+\columnratio{0.74,0.26}
+\setlength{\columnsep}{0.25cm}
+\begin{paracol}{2}
+
+% --- GAUCHE ---
+\sectionheader{Expériences Professionnelles}
+
+% HAND-E - Stage app clé-en-main IA
+\jobentry{Ingénieur Développement Logiciel \& DevOps (Stage temps partiel)}{Lyon / Hybride}{Hand-e (Consulting IA \& Transformation Digitale)}{08/2025 -- Présent}
+\vspace{0.02cm}
+\begin{itemize}[itemsep=2pt,topsep=1pt,leftmargin=0.55cm]
+    \item \textbf{Plateforme de déploiement IA clé-en-main :} Application pour lancer des logiciels d'IA (chatbots, voix) en quelques clics, stack \textbf{NestJS, PostgreSQL, Prisma, Python, Nuxt}.
+    \item \textbf{Packaging et orchestration :} Templates d'apps, provisioning base de données et services, scripts Python pour workers IA.
+    \item \textbf{CI/CD \& DX :} Pipelines GitHub Actions, lint/test, images Docker optimisées pour déploiement rapide client.
+\end{itemize}
+\vspace{0.18cm}
+
+% HAND-E - Stage long
+\jobentry{Ingénieur DevOps (Stage)}{Lyon / Hybride}{Hand-e (Consulting IA \& Transformation Digitale)}{07/2024 -- 12/2024}
+\vspace{0.02cm}
+\begin{itemize}[itemsep=2pt,topsep=1pt,leftmargin=0.55cm]
+    \item \textbf{Architecture SaaS "Hostasphere" :} Plateforme d'observabilité LLM multi-tenant (Go/Gin + MongoDB) avec pipeline d'ingestion gRPC/Protobuf et SDK Python non bloquant.
+    \item \textbf{Fiabilité \& Opérations :} CI/CD GitHub Actions, images Docker multi-stage, reverse proxy Nginx et journaux centralisés.
+    \item \textbf{IA Produit :} Chatbot RAG interne via \textbf{Litellm} pour la base de connaissance client.
+\end{itemize}
+\vspace{0.18cm}
+
+% TAKER
+\jobentry{Vice-Président}{Le Kremlin-Bicêtre / Lyon}{Junior Conseil Taker (Junior Entreprise Epitech)}{03/2024 -- Présent}
+\textit{Vice-Président (depuis juil. 2025) $\cdot$ Resp. Suivi-Études (précédent)}
+\vspace{0.02cm}
+\begin{itemize}[itemsep=2pt,topsep=1pt,leftmargin=0.55cm]
+    \item \textbf{Direction Stratégique :} Pilotage d'une structure de $\sim$240k€ de CA, Lauréat \textbf{"Meilleur Espoir 2024"} CNJE ; optimisation des offres et de la marge.
+    \item \textbf{Management :} Supervision des équipes techniques avec rituels hebdo et plans de montée en compétences.
+    \item \textbf{Lead Tech :} Reprise des études à haut risque (In Astra) : cadrage architecture, QA et livrables clients.
+\end{itemize}
+\vspace{0.16cm}
+
+% EPITECH
+\jobentry{Formateur Occasionnel / Professeur}{Lyon}{EPITECH}{01/2026}
+\textit{Mission intensive (70h/2 semaines) sur le campus de Lyon}
+\vspace{0.02cm}
+\begin{itemize}[itemsep=2pt,topsep=1pt,leftmargin=0.55cm]
+    \item \textbf{Bootcamp ISEG Code Camp :} Animation d'un module d'initiation au code pour étudiants de 1re année (bases algo + web).
+    \item \textbf{Pédagogie digitale :} Conception de supports e-learning/vidéo et sujets d'évaluation sur intranet.
+    \item \textbf{Évaluation \& jurys :} Corrections, notations, participation aux conseils pédagogiques.
+\end{itemize}
+\vspace{0.18cm}
+
+\sectionheader{Projets Significatifs}
+
+% --- IN ASTRA ---
+\projectentry{Callbot IA "In Astra" (Finaliste CNE ALTEN 2025)}{Python, LiveKit, RAG, WebSockets}{
+    \textbf{Finaliste du Prix de la Meilleure Étude en Ingénierie.} Architecture complète d'une infrastructure vocale souveraine pour s'affranchir des solutions SaaS coûteuses.
+}
+\begin{itemize}[label=$\cdot$,leftmargin=0.5cm]
+    \item \textbf{Latence <1s :} Orchestration temps réel d'un pipeline (STT Whisper $\rightarrow$ LLM RAG $\rightarrow$ TTS ElevenLabs) sur \textbf{LiveKit auto-hébergée}.
+    \item \textbf{Impact Économique :} Réduction des coûts d'infrastructure par 3 ($0.12\$/min \rightarrow 0.04\$/min$). Optimisation des tokens et élimination des intermédiaires.
+    \item \textbf{Intelligence \& Souveraineté :} RAG dynamique sur base vectorielle, déclenchement d'actions (webhooks) en temps réel et propriété totale des données.
+\end{itemize}
+\vspace{0.08cm}
+
+% --- GLADOS ---
+\projectentry{Glados (TopineurInc)}{Haskell, VM, Compilateur}{
+    \textbf{Moteur Lisp $\rightarrow$ bytecode (94\% Haskell).} Pipeline complet : parsing, macros, désugaring, \textbf{closure conversion}, ANF, génération de bytecode et \textbf{TCO}.
+}
+\begin{itemize}[label=$\cdot$,leftmargin=0.5cm]
+    \item \textbf{Type Inference Hindley–Milner :} unification + occurs check, typage principal prêt pour spécialisation.
+    \item \textbf{VM haute performance :} constant pool/labels, détection d'ITailCall, optimisation du hot path (profiling GHC, opcodes typés pour réduire le boxing, State strict).
+    \item \textbf{Qualité \& Automatisation :} Tests property-based (QuickCheck) couvrant le pipeline complet, CI/CD Python/Makefile pour builds reproductibles.
+\end{itemize}
+\vspace{0.08cm}
+
+\projectentry{Survivor-Tek3 (Plateforme Incubateur)}{Next.js 15, NestJS, PostgreSQL}{Plateforme fullstack de gestion pour incubateur : architecture modulaire, dashboard admin et messagerie temps réel (WebSockets).}
+\vspace{0.08cm}
+
+\projectentry{OpenHosta (Librairie Open Source)}{Python, OOP, Design Patterns}{Refactorisation majeure d'une lib d'intégration LLM : architecture Orientée Objet, découplage des pipelines et amélioration de l'extensibilité.}
+
+% --- DROITE ---
+\switchcolumn
+\sectionheader{Compétences}
+
+\textbf{\faCode\ Langages} \\
+\skilltag{Go (Golang)} \skilltag{Haskell} \skilltag{Python} \\
+\skilltag{C} \skilltag{C++} \skilltag{TypeScript} \skilltag{Java} \\
+\skilltag{SQL} \skilltag{Bash}
+\vspace{0.06cm}
+
+\textbf{\faServer\ Backend \& Data} \\
+\skilltag{Gin} \skilltag{NestJS} \\
+\skilltag{gRPC} \skilltag{Protobuf} \\
+\skilltag{MongoDB} \skilltag{PostgreSQL}
+\vspace{0.06cm}
+
+\textbf{\faCloud\ DevOps \& Tools} \\
+\skilltag{Docker} \skilltag{LiveKit} \\
+\skilltag{GitHub Actions} \skilltag{CI/CD} \\
+\skilltag{AWS} \skilltag{Nginx} \skilltag{Linux}
+\vspace{0.06cm}
+
+\textbf{\faLaptopCode\ Frontend} \\
+\skilltag{React} \skilltag{Next.js 15} \\
+\skilltag{Tailwind CSS}
+\vspace{0.06cm}
+
+\textbf{\faBrain\ IA \& Engineering} \\
+\skilltag{RAG} \skilltag{STT/TTS} \\
+\skilltag{Audio temps réel} \skilltag{Compilers} \\
+\skilltag{Hindley-Milner} \skilltag{ANF/Closure} \\
+\skilltag{Bytecode VM}
+
+\vspace{0.14cm}
+\sectionheader{Formation}
+
+\textbf{Epitech Technology} \\
+\textit{Expert en Tech. de l'Information} \\
+Promo 2028 (Tek3 actuellement) \\
+\small{Pédagogie par projet.}
+\vspace{0.15cm}
+
+\textbf{Taker Academy} \\
+\textit{Formation Fullstack} \\
+2024
+\vspace{0.15cm}
+
+\textbf{Lycée ECS Sallanches} \\
+\textit{Baccalauréat Général} \\
+2023 \\
+\small{Spécialités : NSI, Maths.}
+
+\vspace{0.14cm}
+\sectionheader{Certifications}
+
+\textbf{The Mantu Manager Program} \\
+\textit{Business Acquisition} \\
+Nov. 2025
+\vspace{0.15cm}
+
+\textbf{Finaliste CNE25 (ALTEN)} \\
+\textit{Meilleure Étude Ingénierie} \\
+Avril 2025
+
+\vspace{0.14cm}
+\sectionheader{Performance}
+
+\vspace{0.18cm}
+\textbf{Kattis (Algo)} \\
+\textbf{Rank \#8} Auvergne-R.-Alpes.
+\vspace{0.32cm}
+
+\textbf{Langues} \\
+\textbf{Français} : Natif \\
+\textbf{Anglais} : B2+ (Technique)
+
+\end{paracol}
+\end{document}
