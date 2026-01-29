@@ -1,0 +1,44 @@
+name: Release CV PDFs
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            make \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra
+
+      - name: Build PDFs
+        run: make
+
+      - name: Prepare metadata
+        id: meta
+        run: echo "sha7=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: CV_WILLIAM_JOLIVET_fr/en ${{ github.ref_name }}
+          body: |
+            Automated release for tag ${{ github.ref_name }}
+            Commit: ${{ steps.meta.outputs.sha7 }}
+          files: |
+            CV_WILLIAM_JOLIVET_fr.pdf
+            CV_WILLIAM_JOLIVET_en.pdf
