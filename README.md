@@ -13,26 +13,10 @@ Je suis dev, donc je « dev » mon CV. Je préfère montrer des réalisations co
 ## Suivre mon parcours
 Si tu veux comprendre mon évolution, suis simplement l’historique des commits.
 
-## Release automatique (PDF)
-Un workflow GitHub Actions publie automatiquement une Release quand tu pushes un tag qui commence par `v` (ex: `v1.2.3`).
-Les PDF générés (`CV_WILLIAM_JOLIVET_fr.pdf` + `CV_WILLIAM_JOLIVET_en.pdf`) sont attachés à la Release.
-
 ### Créer une release
-Option simple via le script :
+Option simple :
 ```bash
 ./scripts/release-tag.sh v1.2.3
-```
-
-Option manuelle :
-```bash
-git tag v1.2.3
-git push origin v1.2.3
-```
-
-### Test local (act)
-Si tu utilises `act`, il faut fournir un token GitHub, sinon l’étape `action-gh-release` échoue :
-```bash
-act --container-architecture linux/amd64 -s GITHUB_TOKEN=ghp_xxx
 ```
 
 ## Feedback bienvenu
