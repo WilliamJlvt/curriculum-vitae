@@ -1,0 +1,19 @@
+name: Improvement proposal
+description: Suggest a focused content, accessibility, design or workflow improvement.
+title: "enhancement: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Which concrete problem would this improvement solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Explain the smallest useful change.
+    validations:
+      required: true
