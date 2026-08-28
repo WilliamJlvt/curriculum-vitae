@@ -5,11 +5,15 @@
 
 A bilingual, print-first resume built with semantic HTML and CSS. The repository is the source of truth for the French and English web versions and their reproducible one-page A4 PDF exports.
 
-## Versions
+## View online
 
-- [French web source](web-cv/index.html)
-- [English web source](web-cv/index.en.html)
-- [Latest PDF release](https://github.com/WilliamJlvt/curriculum-vitae/releases/latest)
+Open the resume in your browser — no download required:
+
+- [French CV](https://williamjlvt.github.io/curriculum-vitae/)
+- [English CV](https://williamjlvt.github.io/curriculum-vitae/index.en.html)
+- [Repository](https://github.com/WilliamJlvt/curriculum-vitae/)
+
+Source files: [French](web-cv/index.html) · [English](web-cv/index.en.html)
 
 ## Design principles
 
@@ -54,15 +58,9 @@ make clean    # remove generated artifacts
 
 Set `CHROME_BIN` when the browser is installed in a non-standard location.
 
-## CI and releases
+## CI
 
-Every push and pull request builds and validates both PDFs. Successful runs publish the generated files as a workflow artifact.
-
-Version tags trigger a GitHub release containing the French and English PDFs:
-
-```bash
-make release VERSION=v2.0.0
-```
+Every push and pull request builds and validates both PDFs. Successful runs publish the generated files as a workflow artifact. Pushes to `main` also deploy the web CV to GitHub Pages.
 
 ## Contributing
 
