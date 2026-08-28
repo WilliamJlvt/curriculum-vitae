@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install validation tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes poppler-utils shellcheck
+
+      - name: Show browser version
+        run: google-chrome --version
+
+      - name: Run quality gate
+        run: ./scripts/check.sh
+
+      - name: Upload PDF artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: william-jolivet-resume-${{ github.sha }}
+          path: output/pdf/*.pdf
+          if-no-files-found: error
+          retention-days: 14

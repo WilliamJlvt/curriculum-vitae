@@ -1,23 +1,73 @@
-# CV de William Jolivet
+# William Jolivet · Resume as Code
 
-Ce repo est vivant. J’y construis mon CV au fil de mes projets concrets et des choses que je code réellement.
+[![CI](https://github.com/WilliamJlvt/curriculum-vitae/actions/workflows/ci.yml/badge.svg)](https://github.com/WilliamJlvt/curriculum-vitae/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-0066cc.svg)](LICENSE)
 
-## Le but du repo
-- Avoir un CV qui évolue avec mon parcours, pas un document figé.
-- Garder une trace claire de mon évolution technique et de mes choix.
-- Rendre visible mon cheminement : chaque commit raconte une étape.
+A bilingual, print-first resume built with semantic HTML and CSS. The repository is the source of truth for the French and English web versions and their reproducible one-page A4 PDF exports.
 
-## Ma philosophie
-Je suis dev, donc je « dev » mon CV. Je préfère montrer des réalisations concrètes plutôt que raconter.
+## Versions
 
-## Suivre mon parcours
-Si tu veux comprendre mon évolution, suis simplement l’historique des commits.
+- [French web source](web-cv/index.html)
+- [English web source](web-cv/index.en.html)
+- [Latest PDF release](https://github.com/WilliamJlvt/curriculum-vitae/releases/latest)
 
-### Créer une release
-Option simple :
-```bash
-./scripts/release-tag.sh v1.2.3
+## Design principles
+
+- One page, vertical A4, with no browser header or footer.
+- Shared design system across French and English versions.
+- Semantic, accessible HTML that remains responsive on screen.
+- Content driven by concrete delivery, engineering depth and measurable impact.
+- Generated PDFs are build artifacts, never hand-edited sources.
+
+## Repository structure
+
+```text
+web-cv/
+  assets/photo.jpg       Shared portrait
+  index.html             French resume
+  index.en.html          English resume
+  styles.css             Screen and print design system
+  app.js                 Print behavior
+scripts/
+  export-cv.sh           Portable Chrome/Chromium export
+  verify-pdfs.sh         One-page A4 validation
+  check.sh               Repository quality gate
+.github/workflows/       CI and automated releases
+output/pdf/              Generated locally; ignored by Git
 ```
 
-## Feedback bienvenu
-N’hésite pas à ouvrir une issue pour un retour, une remarque ou une idée d’amélioration. C’est vraiment cool.
+## Local development
+
+Requirements:
+
+- Google Chrome or Chromium
+- Poppler (`pdfinfo` and `pdftotext`)
+- ShellCheck for shell linting
+
+```bash
+make serve    # http://localhost:8000
+make build    # generate both PDFs in output/pdf/
+make verify   # validate page count, format and text layer
+make check    # lint, build and verify everything
+make clean    # remove generated artifacts
+```
+
+Set `CHROME_BIN` when the browser is installed in a non-standard location.
+
+## CI and releases
+
+Every push and pull request builds and validates both PDFs. Successful runs publish the generated files as a workflow artifact.
+
+Version tags trigger a GitHub release containing the French and English PDFs:
+
+```bash
+make release VERSION=v2.0.0
+```
+
+## Contributing
+
+Feedback and focused improvements are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) before opening a pull request. Please report security or privacy concerns according to [SECURITY.md](SECURITY.md).
+
+## License
+
+The source code and documentation are available under the [MIT License](LICENSE). Personal information and the portrait remain associated with William Jolivet and must not be used to impersonate him.

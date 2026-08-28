@@ -1,3 +1,31 @@
+# Generated artifacts
+output/
+tmp/
+*.pdf
+
+# Legacy LaTeX artifacts
 *.aux
+*.fdb_latexmk
+*.fls
 *.log
 *.out
+*.synctex.gz
+*.toc
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Tool caches
+.cache/
+node_modules/
+__pycache__/
+.pytest_cache/
